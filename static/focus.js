@@ -9,7 +9,7 @@ async function run() {
     const orgOgrns = await sendRequest(API.organizationList);
     const ogrns = orgOgrns.join(",");
 
-    let [requisites, analytics, buh] = await Promise.all([
+    const [requisites, analytics, buh] = await Promise.all([
         sendRequest(`${API.orgReqs}?ogrn=${ogrns}`),
         sendRequest(`${API.analytics}?ogrn=${ogrns}`),
         sendRequest(`${API.buhForms}?ogrn=${ogrns}`),
