@@ -1,6 +1,6 @@
 const API = {
     organizationList: "/orgsList",
-    analytics: "/api3/analytics",
+    analytics: "/api3/analitics",
     orgReqs: "/api3/reqBase",
     buhForms: "/api3/buh",
 };
@@ -28,6 +28,8 @@ function sendRequest(url) {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
                     resolve(JSON.parse(xhr.response));
+                } else if (xhr.status >= 300) {
+                    alert(`code: ${xhr.status}\nstatus: ${xhr.statusText}`)
                 }
             }
         };
